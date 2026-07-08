@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: demo
+  ai:
+    openai:
+      api-key: ${OPENAI_LEARN_API_KEY}
+      base-url: ${OPENAI_LEARN_BASE_URL}
