@@ -5,3 +5,9 @@ spring:
     openai:
       api-key: ${OPENAI_LEARN_API_KEY}
       base-url: ${OPENAI_LEARN_BASE_URL}
+      chat:
+        model: deepseek-v4-flash
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: DEBUG
