@@ -11,6 +11,7 @@ public final class FullRequestLoggerAdvisor {
 
     public static SimpleLoggerAdvisor create() {
         return SimpleLoggerAdvisor.builder()
+                .order(100)
                 .requestToString(req -> {
                     if (req == null) {
                         return "null";

@@ -14,4 +14,10 @@ public class DateTimeTools {
     public String getCurrentDateTime() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
+
+    @Tool(name = "setAlarm", description = "Set a user alarm for the given time, provided in yyyy-MM-dd HH:mm:ss format")
+    public void setAlarm(String time) {
+        LocalDateTime alarmTime = LocalDateTime.parse(time, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println("Alarm set for " + alarmTime);
+    }
 }

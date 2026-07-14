@@ -3,10 +3,19 @@ spring:
     name: demo
   ai:
     openai:
-      api-key: ${OPENAI_LEARN_API_KEY}
-      base-url: ${OPENAI_LEARN_BASE_URL}
+      # 公共默认（可不配；下面 chat/embedding 会分别覆盖）
+      api-key: ${OPENAI_LEARN_API_KEY:}
+      base-url: ${OPENAI_LEARN_BASE_URL:}
       chat:
+        # 聊天专用地址/密钥（优先于上面的公共配置）
+        api-key: ${OPENAI_LEARN_CHAT_API_KEY:${OPENAI_LEARN_API_KEY}}
+        base-url: ${OPENAI_LEARN_CHAT_BASE_URL:${OPENAI_LEARN_BASE_URL}}
         model: deepseek-v4-flash
+      embedding:
+        # 向量专用地址/密钥（可与 chat 完全不同）
+        api-key: ${OPENAI_LEARN_EMBEDDING_API_KEY:${OPENAI_LEARN_API_KEY}}
+        base-url: ${OPENAI_LEARN_EMBEDDING_BASE_URL:${OPENAI_LEARN_BASE_URL}}
+        model: ${OPENAI_LEARN_EMBEDDING_MODEL:BAAI/bge-m3}
 
 logging:
   level:
